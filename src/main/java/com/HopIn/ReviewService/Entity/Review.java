@@ -1,7 +1,10 @@
 package com.HopIn.ReviewService.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -10,13 +13,16 @@ import java.util.Date;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name="Booking_Review")
 public class Review {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int bookingId;
+    private Long bookingId;
 
     private String content;
 
