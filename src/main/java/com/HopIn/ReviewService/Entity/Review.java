@@ -20,4 +20,9 @@ public class Review extends BaseClass  {
     @Column(nullable = false)
     private Double rating;
 
+    @ManyToOne
+    private Driver driver;
+    
+    @ManyToOne
+    private Passenger passenger;
 }
