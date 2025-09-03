@@ -25,7 +25,7 @@ public class Booking extends BaseClass {
 
     private LocalDateTime endDate;
 
-    private LocalDateTime totalDistance;
+    private Double totalDistance;
 
     @ManyToOne
     private Driver driver;
