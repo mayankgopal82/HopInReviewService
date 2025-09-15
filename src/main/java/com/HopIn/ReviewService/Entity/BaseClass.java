@@ -24,4 +24,5 @@ public class BaseClass {
     @LastModifiedDate
     @Column(nullable = false)
     private LocalDateTime lastModified;
+
 }
