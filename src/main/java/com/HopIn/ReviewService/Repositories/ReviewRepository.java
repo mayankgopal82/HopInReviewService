@@ -16,6 +16,6 @@ public interface ReviewRepository extends JpaRepository<Review,Long> {
 Integer countAllByRatingLessThan(Double rating);
 
 List<Review> findAllByCreatedDateBefore(LocalDateTime dateTime);
-List<Review> findByBookingId(String bookingId);
+boolean existsByBookingId(String bookingId);
 
 }

@@ -22,6 +22,9 @@ public class ReviewServiceImpl implements ReviewService {
     @Override
     public ResponseDTO postReview(ReviewDTO reviewDTO) throws Exception {
 
+        if(reviewRepository.existsByBookingId(reviewDTO.getBookingId())){
+            throw new Exception("Booking Already Exists");
+        }
         //a rest call the booking service api to check if the booking id exists or not
         if(!bookingClient.checkBookingExists(reviewDTO.getBookingId())){
             throw new Exception();
@@ -33,8 +36,8 @@ public class ReviewServiceImpl implements ReviewService {
         }
         //here we will map the incoming request reviewDTO after all validations and checks
         //to review entity and persist it
-        Review review = Review.builder().booking_id(reviewDTO.getBookingId()).content(reviewDTO.getContent())
-                .rating(reviewDTO.getRating()).driver_id(reviewDTO.getDriverId()).passenger_id(reviewDTO.getPassengerId()).build();
+        Review review = Review.builder().bookingId(reviewDTO.getBookingId()).content(reviewDTO.getContent())
+                .rating(reviewDTO.getRating()).driverId(reviewDTO.getDriverId()).passengerId(reviewDTO.getPassengerId()).build();
 
      Review reviewResponse=  reviewRepository.save(review);
 
