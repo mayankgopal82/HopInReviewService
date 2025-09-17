@@ -41,7 +41,8 @@ public class Review extends BaseClass  {
 
     @NotNull
     @NotEmpty
-    private String booking_id;
+    @Column(name ="booking_id")
+    private String bookingId;
 
     private String content;
 
@@ -49,9 +50,11 @@ public class Review extends BaseClass  {
     private Double rating;
 
     @NotNull
-    private Long driver_id;
+    @Column(name="driver_id")
+    private Long driverId;
 
     @NotNull
-    private Long passenger_id;
+    @Column(name="passenger_id")
+    private Long passengerId;
 
 }
